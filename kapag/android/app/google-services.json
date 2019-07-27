@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "894578637319",
+    "firebase_url": "https://kapag-739cb.firebaseio.com",
+    "project_id": "kapag-739cb",
+    "storage_bucket": "kapag-739cb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:894578637319:android:e84ed8068caa17c7",
+        "android_client_info": {
+          "package_name": "com.kapag"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "894578637319-adp6qddvcq1dhv6vcbv93od49ah1dfpm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kapag",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "894578637319-ufnjcufuubtrau3t6b7ocr40pmfeolci.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA02DsTVu0ql8Rj5AX5AdJYwWxHFAeuqr4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "894578637319-ufnjcufuubtrau3t6b7ocr40pmfeolci.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -5,10 +5,12 @@ var ProductSchema = new mongoose.Schema({
     type: String,
     index: true
   },
-  cnpj: {
+  price: mongoose.Decimal128,
+  company: {
     type: String,
     index: true
-  }
+  },
+  enterPrice: mongoose.Decimal128
 });
 
 var Product = mongoose.model('Product', ProductSchema);
