@@ -1,0 +1,20 @@
+[
+    {
+        "barcode": "7896445490086",
+        "price": 2.50,
+        "name": "Garrafa de Agua",
+        "qtd": 1
+    },
+    {
+        "barcode": "7898295301208",
+        "price": 6.75,
+        "name": "Lata de Energetico",
+        "qtd": 1
+    },
+    {
+        "barcode": "7898994203742",
+        "price": 35.0,
+        "name": "Caneca Top de Plástico",
+        "qtd": 1
+    }
+]
