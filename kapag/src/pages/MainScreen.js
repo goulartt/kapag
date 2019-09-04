@@ -7,12 +7,12 @@ import {
   ToastAndroid
 } from 'react-native'
 import ActionButton from 'react-native-action-button'
-import TodoList from '../TodoList'
+import TodoList from '../components/TodoList'
 import Icon from 'react-native-vector-icons/Feather'
 import { connect } from 'react-redux';
 
 
-function Home(props) {
+function MainScreen(props) {
 
   const [value, setValue] = useState('')
   const [todos, setTodos] = useState(props.navigation.getParam('products', []))
@@ -37,8 +37,6 @@ function Home(props) {
     }
   }
 
-  console.warn(props)
-
   return (
     <View style={styles.container}>
 
@@ -46,11 +44,11 @@ function Home(props) {
       <Text style={styles.header}>Carrinho de Compras</Text>
       <ScrollView style={{ width: '100%' }}>
         {todos.map(item => (
-          
+
           <TodoList
             text={item.name}
             price={item.price}
-            key={ item.barcode }
+            key={item.barcode}
             qtd={item.qtd}
 
             deleteTodo={() => deleteTodo(item.barcode)}
@@ -91,7 +89,7 @@ function Home(props) {
 const mapStateToProps = store => ({
   products: store.products
 });
-export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps)(MainScreen);
 
 const styles = StyleSheet.create({
   container: {

@@ -16,5 +16,11 @@
         "price": 35.0,
         "name": "Caneca Top de Plástico",
         "qtd": 1
+    },
+    {
+        "barcode": "0070847022022",
+        "price": 20.0,
+        "name": "Monsterzao",
+        "qtd": 1
     }
 ]

@@ -5,7 +5,7 @@ import styles from "../styles/Home"
 //Icon
 import Icon from "react-native-vector-icons/FontAwesome5"
 
-export default class Home extends Component {
+export default class HomeScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -33,7 +33,7 @@ export default class Home extends Component {
           underlayColor="#25316D"
           style={styles.buttons}
           onPress={() => {
-            this.props.navigation.navigate("Cadastrar")
+            this.props.navigation.navigate("SignUp")
           }}
         >
           <Text style={styles.buttonText}>Cadastrar</Text>

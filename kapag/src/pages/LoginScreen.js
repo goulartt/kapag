@@ -15,7 +15,7 @@ import Icon from "react-native-vector-icons/FontAwesome5"
 
 
 
-export default class Login extends Component {
+export default class LoginScreen extends Component {
   constructor(props) {
     super(props)
 
@@ -68,7 +68,7 @@ export default class Login extends Component {
           underlayColor="#25316D"
           style={styles.buttons}
           onPress={() => {
-            this.props.navigation.navigate("Drawer")
+            this.props.navigation.navigate("MainScreen")
           }}
         >
           <Text style={styles.buttonText}>Login</Text>

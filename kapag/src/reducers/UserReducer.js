@@ -1,8 +1,5 @@
-import { combineReducers } from 'redux';
-import products from '../../products.json' 
-
 const INITIAL_STATE = {
-  products: products
+  user: {}
 };
 
 const productReducer = (state = INITIAL_STATE, action) => {
@@ -13,4 +10,3 @@ const productReducer = (state = INITIAL_STATE, action) => {
 };
 
 export default productReducer
-

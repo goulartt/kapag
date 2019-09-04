@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { ToastAndroid, Text, View } from 'react-native'
 import { RNCamera } from 'react-native-camera'
-import productsJson from '../products.json'
+import productsJson from '../../products.json'
 class BarCodeReader extends Component {
 
   constructor(props) {
@@ -48,7 +48,7 @@ class BarCodeReader extends Component {
             ToastAndroid.show('Código de barras não cadastrado no sistema', ToastAndroid.SHORT)
             this.hasRead = false
           } else {
-            this.props.navigation.navigate("Home", { products: this.products })
+            this.props.navigation.navigate("MainScreen", { products: this.products })
           }
         }
 
