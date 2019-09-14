@@ -3,7 +3,7 @@ import { reactotronRedux } from 'reactotron-redux'
 
 const reactotron = Reactotron
   .configure({
-    host: '192.168.137.1'  // server ip
+    host: '192.168.0.15'  // server ip
   })
   .useReactNative() // add all built-in react native plugins
   .use(reactotronRedux()) //  <- here i am!

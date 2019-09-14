@@ -22,5 +22,11 @@
         "price": 20.0,
         "name": "Monsterzao",
         "qtd": 1
+    },
+    {
+        "barcode": "7891000105016",
+        "price": 5.0,
+        "name": "Barra de Cereal",
+        "qtd": 1
     }
 ]

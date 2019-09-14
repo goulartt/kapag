@@ -1,14 +1,15 @@
 import React, { Component } from 'react'
 import { ToastAndroid, Text, View } from 'react-native'
 import { RNCamera } from 'react-native-camera'
-import productsJson from '../../products.json'
+import { addProduct, getAllProducts } from './../actions/index';
+import { connect } from 'react-redux'
+
 class BarCodeReader extends Component {
 
   constructor(props) {
     super(props)
     this.camera = null
     this.barcodeCodes = []
-    this.products = this.props.navigation.getParam('products', [])
     this.hasRead = false
     this.state = {
       camera: {
@@ -20,41 +21,32 @@ class BarCodeReader extends Component {
   }
 
   onBarCodeRead(scanResult) {
+    const { products } = this.props
+
     if (scanResult.data != null) {
       if (!this.barcodeCodes.includes(scanResult.data)) {
+        this.setState({ barcodeCodes: [...this.barcodeCodes, scanResult.data] })
         if (!this.hasRead) {
-          this.hasRead = true
-          let codeExist = false
-          for (let i = 0; i < productsJson.length; i++) {
-            
-            if (productsJson[i].barcode === scanResult.data) {
+          this.setState({ hasRead: true })
+          for (let i = 0; i < products.length; i++) {
+
+            if (products[i].barcode === scanResult.data) {
               codeExist = true
 
-              let incremented = false
-              /*for (let j = 0 j < this.products.length j++) {
-                if (this.products[j].barcode === scanResult.data) {
-                  this.products[j].qtd++
-                  incremented = true
-                }
-              }*/
+              this.props.dispatch(addProduct(products[i]))
+              this.props.navigation.navigate('MainScreen')
 
-              if (!incremented) {
-                this.products.push(productsJson[i])
-              }
+              return;
             }
           }
 
-          if (!codeExist) {
-            ToastAndroid.show('Código de barras não cadastrado no sistema', ToastAndroid.SHORT)
-            this.hasRead = false
-          } else {
-            this.props.navigation.navigate("MainScreen", { products: this.products })
-          }
+          ToastAndroid.show('Código de barras não cadastrado no sistema', ToastAndroid.SHORT)
+          this.setState({ hasRead: false })
+
         }
 
       }
     }
-    return
   }
 
   async takePicture() {
@@ -155,4 +147,9 @@ const styles = {
   }
 }
 
-export default BarCodeReader
+
+const mapStateToProps = store => ({
+  products: store.products.products
+})
+
+export default connect(mapStateToProps)(BarCodeReader)

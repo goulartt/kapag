@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react"
+import React, { Component, useState, useEffect } from "react"
 import {
   StyleSheet,
   Text,
@@ -10,32 +10,22 @@ import ActionButton from 'react-native-action-button'
 import TodoList from '../components/TodoList'
 import Icon from 'react-native-vector-icons/Feather'
 import { connect } from 'react-redux';
+import { deleteProduct } from './../actions/index';
 
 
 function MainScreen(props) {
 
-  const [value, setValue] = useState('')
-  const [todos, setTodos] = useState(props.navigation.getParam('products', []))
+  const [todos, setTodos] = useState(props.products.scannedProducts, [])
   let totalSum = 0.0
 
-  addTodo = () => {
-    if (value.length > 0) {
-      setTodos([...todos, { text: value, key: Date.now().getMilliseconds() }])
-      setValue('')
-    }
-  }
+
+  
+
+  useEffect(() => {
+    setTodos(props.products.scannedProducts)
+  }, [props.products.scannedProducts])
 
 
-
-  deleteTodo = id => {
-    if (id) {
-      setTodos(
-        todos.filter(todo => {
-          if (todo.key != id) return true
-        })
-      )
-    }
-  }
 
   return (
     <View style={styles.container}>
@@ -51,7 +41,7 @@ function MainScreen(props) {
             key={item.barcode}
             qtd={item.qtd}
 
-            deleteTodo={() => deleteTodo(item.barcode)}
+            deleteTodo={() => props.dispatch(deleteProduct(item.barcode))}
           />
 
         ))}
@@ -87,8 +77,10 @@ function MainScreen(props) {
 }
 
 const mapStateToProps = store => ({
-  products: store.products
-});
+  products: store.products,
+  scannedProducts: store.scannedProducts
+})
+
 export default connect(mapStateToProps)(MainScreen);
 
 const styles = StyleSheet.create({
